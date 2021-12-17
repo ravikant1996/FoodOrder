@@ -18,6 +18,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import com.example.foodorder.R
 import com.example.foodorder.adapter.GridAutofitLayoutManager
+import com.example.foodorder.adapter.GridItemDecoration
 import com.example.foodorder.communicator.MyCommunicator
 import com.example.foodorder.model.Food
 import com.example.foodorder.model.FoodProvider
@@ -85,14 +86,12 @@ class QuickServiceFragment : Fragment() {
 
     private fun initFoodRecycler(foodList: ArrayList<Food>) {
         foodAdapter = FoodAdapter(foodList, requireActivity())
-//        val x = (resources.displayMetrics.density * 4).toInt() //converting dp to pixels
-//        binding.recyclerView.addItemDecoration(SpacingItemDecorator(x)) //setting space between items in RecyclerView
+        binding.recyclerViewFood.addItemDecoration(GridItemDecoration(10, 2))
         binding.recyclerViewFood.apply {
             setHasFixedSize(true)
             adapter = foodAdapter
         }
     }
-//                LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_search, menu)
