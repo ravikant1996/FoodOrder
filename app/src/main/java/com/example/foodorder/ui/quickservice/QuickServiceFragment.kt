@@ -17,6 +17,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import com.example.foodorder.R
+import com.example.foodorder.adapter.GridAutofitLayoutManager
 import com.example.foodorder.communicator.MyCommunicator
 import com.example.foodorder.model.Food
 import com.example.foodorder.model.FoodProvider
@@ -89,10 +90,9 @@ class QuickServiceFragment : Fragment() {
         binding.recyclerViewFood.apply {
             setHasFixedSize(true)
             adapter = foodAdapter
-            layoutManager =
-                LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
         }
     }
+//                LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_search, menu)
@@ -102,7 +102,7 @@ class QuickServiceFragment : Fragment() {
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextChange(newText: String?): Boolean {
                 if (newText.isNullOrEmpty()) {
-                    categoryAdapter.updateList()
+                    foodAdapter.updateList()
                 }
                 return false
             }
@@ -110,9 +110,9 @@ class QuickServiceFragment : Fragment() {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 Toast.makeText(requireActivity(), "$query", Toast.LENGTH_SHORT).show()
                 if (query.isNullOrEmpty()) {
-                    categoryAdapter.updateList()
+                    foodAdapter.updateList()
                 } else {
-                    categoryAdapter.filter.filter(query)
+                    foodAdapter.filter.filter(query)
                 }
                 return false
             }
@@ -120,8 +120,8 @@ class QuickServiceFragment : Fragment() {
         })
 
         searchView.setOnCloseListener {
-            if (categoryAdapter != null) {
-                categoryAdapter.updateList()
+            if (foodAdapter != null) {
+                foodAdapter.updateList()
             }
             false
         }

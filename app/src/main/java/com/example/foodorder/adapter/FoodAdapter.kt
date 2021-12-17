@@ -43,29 +43,6 @@ class FoodAdapter(private var list: List<Food>, private val context: Context) :
             selectedPosition = holder.adapterPosition
             this.notifyDataSetChanged()
         }
-//        if (selectedPosition == position) {
-//            val colorCard = R.color.purple_700
-//            val colorImage = R.color.white
-//            val colorText = R.color.white
-//            setColor(holder, colorCard, colorImage, colorText)
-//        } else if (holder.adapterPosition == 0 && selectedPosition == -1) {
-//            val colorCard = R.color.purple_700
-//            val colorImage = R.color.white
-//            val colorText = R.color.white
-//            setColor(holder, colorCard, colorImage, colorText)
-//        } else {
-//            val colorCard = R.color.white
-//            val colorImage = R.color.black
-//            val colorText = R.color.black
-//            setColor(holder, colorCard, colorImage, colorText)
-//        }
-
-    }
-
-    private fun setColor(holder: ViewHolder, colorCard: Int, colorImage: Int, colorText: Int) {
-        holder.cardView.setCardBackgroundColor(context.colorList(colorCard))
-        holder.imageView.setTint(colorImage)
-        holder.name.setTextColorRes(colorText)
     }
 
     override fun getItemCount(): Int = foodFilterList.size
