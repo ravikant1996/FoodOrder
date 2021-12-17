@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/quick_service">
+
+    <fragment
+        android:id="@+id/quick_service"
+        android:name="com.example.foodorder.ui.quickservice.QuickServiceFragment"
+        android:label="Quick Service"
+        tools:layout="@layout/fragment_quick_service">
+        <action
+            android:id="@+id/action_nav_home_to_viewItemFragment2"
+            app:destination="@id/viewItemFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/transitions"
+        android:name="com.example.foodorder.ui.transaction.OrderHistoryFragment"
+        android:label="Transactions"
+        tools:layout="@layout/fragment_order_history" />
+    <fragment
+        android:id="@+id/viewItemFragment"
+        android:name="com.example.foodorder.ui.viewitemmodel.ViewItemFragment"
+        tools:layout="@layout/fragment_view_item">
+    </fragment>
+
+</navigation>
